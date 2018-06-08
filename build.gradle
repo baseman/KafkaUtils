@@ -1,0 +1,27 @@
+apply plugin: 'kotlin-platform-jvm'
+
+buildscript {
+    ext.kotlin_version = '1.2.41'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://packages.confluent.io/maven/" }
+
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile 'org.apache.kafka:kafka-clients:0.11.0.0'
+    compile 'io.confluent:kafka-avro-serializer:3.2.1'
+
+    compile "org.apache.avro:avro:1.8.2"
+}
